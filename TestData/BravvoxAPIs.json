@@ -1,4 +1,0 @@
-﻿{
-  "UserTokenAPI": "services/auth/v1/login",
-  "CreateEventAPI": "services/event/v1/event"
-}

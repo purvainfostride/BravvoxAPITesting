@@ -61,26 +61,33 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BravvoxAPI\CreateEvent.cs" />
-    <Compile Include="DTOs\BravvoxAPIsDTO.cs" />
+    <Compile Include="BravvoxAPI\BravvoxPatchAPI.cs" />
+    <Compile Include="BravvoxAPI\BravvoxPostAPI.cs" />
+    <Compile Include="DTOs\BravvoxAPIEndpointsDTO.cs" />
     <Compile Include="DTOs\CreateEventDTO.cs" />
     <Compile Include="DTOs\UserTokenDTO.cs" />
-    <Compile Include="TestingBravvoxAPIs\TestCreateEvent.cs" />
+    <Compile Include="TestingBravvoxAPIs\TestingPATCH.cs" />
+    <Compile Include="TestingBravvoxAPIs\TestingPOST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\APIHelper.cs" />
     <Compile Include="Utility\CRUDMethods.cs" />
     <Compile Include="Utility\HandleContent.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="TestData\UpdateEvent.json" />
     <None Include="TestData\UserToken.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="TestData\BravvoxAPIs.json" />
+    <None Include="TestData\BravvoxAPIEndpoints.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\CreateEvent.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestData\Token.txt" />
+    <Content Include="TestData\Token.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
