@@ -14,7 +14,7 @@ namespace BravvoxAPITesting.Utility
         public static RestRequest restRequest;
         public static IRestResponse restResponse;
         public string baseUrl = "https://qa.bravvox.com/";
-
+        public string text = @"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\Token.txt";
 
         public RestClient SetUrl(string endpoint)
         {
@@ -42,7 +42,6 @@ namespace BravvoxAPITesting.Utility
             DTOs dTOs = JsonConvert.DeserializeObject<DTOs>(contentOfUsers);
             JObject o = JObject.Parse(response.Content);
             string token = o["data"]["token"].ToString();
-            Console.WriteLine(token);
             File.WriteAllText(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\Token.txt", token);
             return dTOs;
         }
@@ -54,34 +53,36 @@ namespace BravvoxAPITesting.Utility
             DTOs dTOs = JsonConvert.DeserializeObject<DTOs>(contentOfUsers);
             return dTOs;
         }
-        //public string GetToken(IRestResponse response)
-        //{
-
-        //    JObject o = JObject.Parse(response.Content);
-        //    string token = o["data"]["token"].ToString();
-        //    Console.WriteLine(token);
-        //    File.WriteAllText(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\Token.txt", token);
-        //    return token;
-        //}
-        public RestRequest CreateEventPostRequest(dynamic payload)
+        public RestRequest EventPostRequest(dynamic payload)
         {
             var restRequest = new RestRequest(Method.POST);
-            Console.WriteLine();
-            string text =@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\Token.txt";
             restRequest.AddHeader("Authorization", File.ReadAllText(text));
             restRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
             return restRequest;
         }
-        public HttpStatusCode GetStatusCode()
+        public RestRequest ActivateEventPostRequest()
         {
-            var statusCode = restResponse.StatusCode;
-            Console.WriteLine("Status Code is: " + (int)statusCode);
-            return statusCode;
+            var restRequest = new RestRequest(Method.POST);
+            restRequest.AddHeader("Authorization", File.ReadAllText(text));
+            return restRequest;
         }
+        public RestRequest EventPacthRequest(dynamic payload)
+        {
+            var restRequest = new RestRequest(Method.PATCH);
+            restRequest.AddHeader("Authorization", File.ReadAllText(text));
+            restRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
+            return restRequest;
+        }
+        //public int GetStatusCode(IRestResponse response)
+        //{
+        //    JObject o = JObject.Parse(response.Content);
+        //    string statusCode = o["data"]["status"].ToString();
+        //    int s= int.Parse(statusCode);
+        //    return s;
+        //}
         public string GetStatusDescription()
         {
             var statusDescription = restResponse.StatusDescription;
-            Console.WriteLine("StatusDescription is: " + statusDescription);
             return statusDescription;
         }
     }

@@ -1,0 +1,7 @@
+﻿{
+  "UserTokenAPI": "services/auth/v1/login",
+  "CreateEventAPI": "services/event/v1/event",
+  "DeactivateEventAPI": "services/event/v1/event/c97vkc8r67nih8v3ul1g/deactivate",
+  "ReactivateEventAPI": "services/event/v1/event/c97vkc8r67nih8v3ul1g/reactivate",
+  "UpdateEventAPI": "services/event/v1/event/c9k0mkiqe7dispa328vg"
+}
