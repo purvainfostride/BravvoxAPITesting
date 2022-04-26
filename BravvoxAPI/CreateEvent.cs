@@ -8,21 +8,22 @@ namespace BravvoxAPITesting.BravvoxAPI
 {
     public class CreateEvent<T>
     {
-        //public void CreatingEvent()
-        //{
-        //    var payload = HandleContent.ParseJson<CreateEventDTO>("CreateUser.json");
-        //    var crudmethods = new CRUDMethods<CreateEventDTO>();
-        //    var endp = HandleContent.ParseJson<BravvoxAPIsDTO>("BravvoxAPIs.json");
-        //    var content = crudmethods.CreateUsers(endp.CreateEventApi, payload);
-        //    Console.WriteLine(content);
-        //}
-        
+
+        public void CreatingEvent(string contentOfUsers)
+        {
+            var payload = HandleContent.ParseJson<CreateEventDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\CreateEvent.json");
+            var crudmethods = new CRUDMethods<CreateEventDTO>();
+            var endp = HandleContent.ParseJson<BravvoxAPIsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIs.json");
+            var content = crudmethods.CreateEvent(endp.CreateEventApi, payload, contentOfUsers);
+            Console.WriteLine(content);
+        }
+
         public UserTokenDTO GeneratingToken()
         {
             var payload = HandleContent.ParseJson<UserTokenDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\UserToken.json");
             var crudmethods = new CRUDMethods<UserTokenDTO>();
-            UserTokenDTO content = crudmethods.GenerateToken("services/auth/v1/login", payload);
-           
+            var endp = HandleContent.ParseJson<BravvoxAPIsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIs.json");
+            UserTokenDTO content = crudmethods.GenerateToken(endp.UserTokenAPI, payload);   
             return content;
         }
 
