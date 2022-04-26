@@ -3,7 +3,7 @@ using RestSharp;
 using System.IO;
 using Newtonsoft.Json;
 using System.Net;
-
+using Newtonsoft.Json.Linq;
 
 namespace BravvoxAPITesting.Utility
 {
@@ -25,17 +25,19 @@ namespace BravvoxAPITesting.Utility
         {
             var restRequest = new RestRequest(Method.POST);
             restRequest.AddHeader("Accept", "application/json");
+            restRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
             return restRequest;
         }
         public IRestResponse GetResponse(RestClient restClient, RestRequest restRequest)
-        {
-           
-            return restResponse = restClient.Execute(restRequest);
-            
+        {  
+            return restResponse = restClient.Execute(restRequest);    
         }
         public DTOs GetContent<DTOs>(IRestResponse response)
         {
             var contentOfUsers = response.Content;
+
+            string jsonFormatted = JValue.Parse(contentOfUsers).ToString(Formatting.Indented);
+            Console.WriteLine(jsonFormatted);
             DTOs dTOs = JsonConvert.DeserializeObject<DTOs>(contentOfUsers);
             return dTOs;
         }

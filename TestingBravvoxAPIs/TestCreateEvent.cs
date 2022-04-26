@@ -24,8 +24,9 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
         public void ValidateGenerateToken()
         {
             var createEvent= new CreateEvent<UserTokenDTO>();
+            var apiHelper = new APIHelper<UserTokenDTO>();
             createEvent.GeneratingToken();
-            
+            Console.WriteLine(apiHelper.GetStatusDescription());
           
             //Assert.AreEqual(payload.Name, content.Name);
         }
