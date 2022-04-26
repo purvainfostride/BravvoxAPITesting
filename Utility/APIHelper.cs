@@ -67,7 +67,7 @@ namespace BravvoxAPITesting.Utility
         {
             var restRequest = new RestRequest(Method.POST);
             Console.WriteLine();
-            string text = @"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\Token.txt";
+            string text =@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\Token.txt";
             restRequest.AddHeader("Authorization", File.ReadAllText(text));
             restRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
             return restRequest;
