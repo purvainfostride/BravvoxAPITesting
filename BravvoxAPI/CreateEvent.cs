@@ -9,12 +9,12 @@ namespace BravvoxAPITesting.BravvoxAPI
     public class CreateEvent<T>
     {
 
-        public void CreatingEvent(string contentOfUsers)
+        public void CreatingEvent()
         {
             var payload = HandleContent.ParseJson<CreateEventDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\CreateEvent.json");
             var crudmethods = new CRUDMethods<CreateEventDTO>();
             var endp = HandleContent.ParseJson<BravvoxAPIsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIs.json");
-            var content = crudmethods.CreateEvent(endp.CreateEventApi, payload, contentOfUsers);
+            var content = crudmethods.CreateEvent(endp.CreateEventApi, payload);
             Console.WriteLine(content);
         }
 

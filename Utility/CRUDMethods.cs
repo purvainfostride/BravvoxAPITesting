@@ -8,14 +8,14 @@ namespace BravvoxAPITesting.Utility
 {
     public class CRUDMethods<T>
     {
-        public CreateEventDTO CreateEvent(string endpoint, dynamic payload, string contentOfUsers)
+        public CreateEventDTO CreateEvent(string endpoint, dynamic payload)
         {
             var user = new APIHelper<CreateEventDTO>();
             var url = user.SetUrl(endpoint);     
             var requestJson = HandleContent.Serialize(payload);//serialize into json
-            var request = user.CreateEventPostRequest(requestJson, contentOfUsers);
+            var request = user.CreateEventPostRequest(requestJson);
             var response = user.GetResponse(url, request);
-            CreateEventDTO content = user.GetContent<CreateEventDTO>(response);
+            CreateEventDTO content = user.GetEventContent<CreateEventDTO>(response);
             return content;
         }
         public UserTokenDTO GenerateToken(string endpoint, dynamic payload)

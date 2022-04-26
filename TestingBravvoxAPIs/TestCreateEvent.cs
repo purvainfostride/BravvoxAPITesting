@@ -9,14 +9,14 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
     [TestClass]
     public class TestCreateEvent
     {
-        private string contentOfUsers;
+
 
         [TestMethod]
         public void ValidateCreateEvent()
         {
             var createEvent = new CreateEvent<CreateEventDTO>();
             var apiHelper = new APIHelper<CreateEventDTO>();
-            createEvent.CreatingEvent( contentOfUsers);
+            createEvent.CreatingEvent();
             Console.WriteLine(apiHelper.GetStatusDescription());
         }
         [TestMethod]
