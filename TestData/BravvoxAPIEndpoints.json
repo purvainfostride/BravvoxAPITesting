@@ -1,7 +1,12 @@
 ﻿{
-  "UserTokenAPI": "services/auth/v1/login",
-  "CreateEventAPI": "services/event/v1/event",
-  "DeactivateEventAPI": "services/event/v1/event/c97vkc8r67nih8v3ul1g/deactivate",
-  "ReactivateEventAPI": "services/event/v1/event/c97vkc8r67nih8v3ul1g/reactivate",
-  "UpdateEventAPI": "services/event/v1/event/c9k0mkiqe7dispa328vg"
+  //POST
+  "UserTokenEndpoint": "services/auth/v1/login",
+  "CreateEventEndpoint": "services/event/v1/event",
+  "DeactivateEventEndpoint": "services/event/v1/c9khcol1mr2285sljbig/deactivate",
+  "ReactivateEventEndpoint": "services/event/v1/event/c9khcol1mr2285sljbig/reactivate",
+  "InviteUserToEventEndpoint": "services/event/v1/event/c9khcol1mr2285sljbig/invite/c8e7rgfksqa840u176s0",
+  //PATCH
+  "UpdateEventEndpoint": "services/event/v1/event/c9k0mkiqe7dispa328vg",
+  //GET
+  "GetEventDetailsEndpoint": "services/event/v1/event/c9k0mkiqe7dispa328vg"
 }

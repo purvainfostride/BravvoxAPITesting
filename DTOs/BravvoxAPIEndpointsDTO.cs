@@ -8,13 +8,15 @@ namespace BravvoxAPITesting.DTOs
 {
     public class BravvoxAPIEndpointsDTO
     {
-        public string CreateEventAPI { get; set; }
-        public string UserTokenAPI { get; set; }
-        public string DeactivateEventAPI { get; set; }
-        public string ReactivateEventAPI { get; set; }
-
-        public string UpdateEventAPI { get; set; }
+        public string CreateEventEndpoint { get; set; }
+        public string UserTokenEndpoint { get; set; }
+        public string DeactivateEventEndpoint { get; set; }
+        public string ReactivateEventEndpoint { get; set; }
+        public string UpdateEventEndpoint { get; set; }
+        public string GetEventDetailsEndpoint { get; set; }
+        public string InviteUserToEventEndpoint { get; set; }
         
-            
+
+
     }
 }
