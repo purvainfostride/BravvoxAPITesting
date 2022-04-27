@@ -12,7 +12,7 @@ namespace BravvoxAPITesting.Utility
         {
             var user = new APIHelper<UserTokenDTO>();
             var url = user.SetUrl(endpoint);
-            var requestJson = HandleContent.Serialize(payload);//serialize into json
+            var requestJson = UtilMethods.Serialize(payload);//serialize into json
             var request = user.CreatePostRequest(requestJson);
             var response = user.GetResponse(url, request);
             UserTokenDTO content = user.GetContent<UserTokenDTO>(response);
@@ -22,7 +22,7 @@ namespace BravvoxAPITesting.Utility
         {
             var user = new APIHelper<CreateEventDTO>();
             var url = user.SetUrl(endpoint);     
-            var requestJson = HandleContent.Serialize(payload);//serialize into json
+            var requestJson = UtilMethods.Serialize(payload);//serialize into json
             var request = user.EventPostRequest(requestJson);
             var response = user.GetResponse(url, request);
             CreateEventDTO content = user.GetEventContent<CreateEventDTO>(response);
@@ -59,7 +59,7 @@ namespace BravvoxAPITesting.Utility
         {
             var user = new APIHelper<CreateEventDTO>();
             var url = user.SetUrl(endpoint);
-            var requestJson = HandleContent.Serialize(payload);//serialize into json
+            var requestJson = UtilMethods.Serialize(payload);//serialize into json
             var request = user.EventPacthRequest(requestJson);
             var response = user.GetResponse(url, request);
             CreateEventDTO content = user.GetEventContent<CreateEventDTO>(response);

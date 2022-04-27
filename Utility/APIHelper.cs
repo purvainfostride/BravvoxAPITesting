@@ -5,17 +5,19 @@
     using System.IO;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
+    using BravvoxAPITesting.DTOs;
+
     public class APIHelper<T>
     {
         public static RestClient restClient;
         public static RestRequest restRequest;
         public static IRestResponse restResponse;
-        public string baseUrl = "https://qa.bravvox.com/";
-        public string text = @"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\Token.txt";
+
+        UtilMethods utilMethods = new UtilMethods();
 
         public RestClient SetUrl(string endpoint)
         {
-            var url = Path.Combine(baseUrl, endpoint);
+            var url = Path.Combine(utilMethods.UrlPath(), endpoint);
             var RestClient = new RestClient(url);
             return RestClient;
         }
@@ -39,7 +41,7 @@
             DTOs dTOs = JsonConvert.DeserializeObject<DTOs>(contentOfUsers);
             JObject o = JObject.Parse(response.Content);
             string token = o["data"]["token"].ToString();
-            File.WriteAllText(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\Token.txt", token);
+            File.WriteAllText(utilMethods.TokenFilePath(), token);
             return dTOs;
         }
         public DTOs GetEventContent<DTOs>(IRestResponse response)
@@ -53,33 +55,33 @@
         public RestRequest EventPostRequest(dynamic payload)
         {
             var restRequest = new RestRequest(Method.POST);
-            restRequest.AddHeader("Authorization", File.ReadAllText(text));
+            restRequest.AddHeader("Authorization", File.ReadAllText(utilMethods.TokenFilePath()));
             restRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
             return restRequest;
         }
         public RestRequest ActivateEventPostRequest()
         {
             var restRequest = new RestRequest(Method.POST);
-            restRequest.AddHeader("Authorization", File.ReadAllText(text));
+            restRequest.AddHeader("Authorization", File.ReadAllText(utilMethods.TokenFilePath()));
             return restRequest;
         }
         public RestRequest InvitePostRequest()
         {
             var restRequest = new RestRequest(Method.POST);
-            restRequest.AddHeader("Authorization", File.ReadAllText(text));
+            restRequest.AddHeader("Authorization", File.ReadAllText(utilMethods.TokenFilePath()));
             return restRequest;
         }
         
         public RestRequest EventGetRequest()
         {
             var restRequest = new RestRequest(Method.GET);
-            restRequest.AddHeader("Authorization", File.ReadAllText(text));
+            restRequest.AddHeader("Authorization", File.ReadAllText(utilMethods.TokenFilePath()));
             return restRequest;
         }
         public RestRequest EventPacthRequest(dynamic payload)
         {
             var restRequest = new RestRequest(Method.PATCH);
-            restRequest.AddHeader("Authorization", File.ReadAllText(text));
+            restRequest.AddHeader("Authorization", File.ReadAllText(utilMethods.TokenFilePath()));
             restRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
             return restRequest;
         }

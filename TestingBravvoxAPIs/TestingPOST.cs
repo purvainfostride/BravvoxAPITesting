@@ -9,7 +9,7 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
 {
     [TestClass]
     public class TestingPOST
-    {        [TestMethod]
+    {   [TestMethod]
         public void ValidateCreateEvent()
         {
             var createEvent = new BravvoxPostAPI<CreateEventDTO>();

@@ -11,17 +11,17 @@ namespace BravvoxAPITesting.BravvoxAPI
 
         public UserTokenDTO GeneratingToken()
         {
-            var payload = HandleContent.ParseJson<UserTokenDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\UserToken.json");
+            var payload = UtilMethods.ParseJson<UserTokenDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\UserToken.json");
             var crudmethods = new CRUDMethods<UserTokenDTO>();
-            var endp = HandleContent.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
+            var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
             UserTokenDTO content = crudmethods.GenerateToken(endp.UserTokenEndpoint, payload);
             return content;
         }
         public CreateEventDTO CreatingEvent()
         {
-            var payload = HandleContent.ParseJson<CreateEventDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\CreateEvent.json");
+            var payload = UtilMethods.ParseJson<CreateEventDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\CreateEvent.json");
             var crudmethods = new CRUDMethods<CreateEventDTO>();
-            var endp = HandleContent.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
+            var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
             var content = crudmethods.CreateEvent(endp.CreateEventEndpoint, payload);
             return content;
         }
@@ -29,7 +29,7 @@ namespace BravvoxAPITesting.BravvoxAPI
         public CreateEventDTO DeactivateEvent()
         {
             var crudmethods = new CRUDMethods<CreateEventDTO>();
-            var endp = HandleContent.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
+            var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
             var content = crudmethods.ActivateEvent(endp.DeactivateEventEndpoint);
             return content;
         }
@@ -37,7 +37,7 @@ namespace BravvoxAPITesting.BravvoxAPI
         {
            
             var crudmethods = new CRUDMethods<CreateEventDTO>();
-            var endp = HandleContent.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
+            var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
             var content = crudmethods.ActivateEvent(endp.ReactivateEventEndpoint);
             return content;
         }
@@ -45,7 +45,7 @@ namespace BravvoxAPITesting.BravvoxAPI
         {
 
             var crudmethods = new CRUDMethods<CreateEventDTO>();
-            var endp = HandleContent.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
+            var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
             var content = crudmethods.InviteUserToEvent(endp.InviteUserToEventEndpoint);
             return content;
         }
