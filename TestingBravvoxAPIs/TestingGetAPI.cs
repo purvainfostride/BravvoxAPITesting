@@ -10,8 +10,7 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
     {
         [TestMethod]
         public void GetEventDetails()
-        {
-            var createEvent = new BravvoxGetAPI<CreateEventDTO>();
+        {           var createEvent = new BravvoxGetAPI<CreateEventDTO>();
             var apiHelper = new APIHelper<CreateEventDTO>();
             createEvent.GettingEventDetails();
             Assert.AreEqual("OK", apiHelper.GetStatusDescription());
