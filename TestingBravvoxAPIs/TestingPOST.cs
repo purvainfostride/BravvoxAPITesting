@@ -34,6 +34,14 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
             Assert.AreEqual("OK", apiHelper.GetStatusDescription());
         }
         [TestMethod]
+        public void ValidateInvitingUserToEvent()
+        {
+            var createEvent = new BravvoxPostAPI<CreateEventDTO>();
+            var apiHelper = new APIHelper<CreateEventDTO>();
+            createEvent.ReactivateEvent();
+            Assert.AreEqual("OK", apiHelper.GetStatusDescription());
+        }
+        [TestMethod]
         public void ValidateAGenerateToken()
         {
             var createEvent= new BravvoxPostAPI<UserTokenDTO>();

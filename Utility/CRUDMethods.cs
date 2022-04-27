@@ -37,6 +37,24 @@ namespace BravvoxAPITesting.Utility
             CreateEventDTO content = user.GetEventContent<CreateEventDTO>(response);
             return content;
         }
+        public CreateEventDTO InviteUserToEvent(string endpoint)
+        {
+            var user = new APIHelper<CreateEventDTO>();
+            var url = user.SetUrl(endpoint);
+            var request = user.InvitePostRequest();
+            var response = user.GetResponse(url, request);
+            CreateEventDTO content = user.GetEventContent<CreateEventDTO>(response);
+            return content;
+        }
+        public CreateEventDTO GetEventDetails(string endpoint)
+        {
+            var user = new APIHelper<CreateEventDTO>();
+            var url = user.SetUrl(endpoint);
+            var request = user.EventGetRequest();
+            var response = user.GetResponse(url, request);
+            CreateEventDTO content = user.GetEventContent<CreateEventDTO>(response);
+            return content;
+        }
         public CreateEventDTO UpdateEvent(string endpoint, dynamic payload)
         {
             var user = new APIHelper<CreateEventDTO>();

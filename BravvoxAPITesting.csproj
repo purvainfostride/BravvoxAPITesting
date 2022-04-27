@@ -61,11 +61,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BravvoxAPI\BravvoxGetAPI.cs" />
     <Compile Include="BravvoxAPI\BravvoxPatchAPI.cs" />
     <Compile Include="BravvoxAPI\BravvoxPostAPI.cs" />
     <Compile Include="DTOs\BravvoxAPIEndpointsDTO.cs" />
     <Compile Include="DTOs\CreateEventDTO.cs" />
     <Compile Include="DTOs\UserTokenDTO.cs" />
+    <Compile Include="TestingBravvoxAPIs\TestingGetAPI.cs" />
     <Compile Include="TestingBravvoxAPIs\TestingPATCH.cs" />
     <Compile Include="TestingBravvoxAPIs\TestingPOST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

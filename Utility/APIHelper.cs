@@ -1,13 +1,10 @@
-﻿using System;
-using RestSharp;
-using System.IO;
-using Newtonsoft.Json;
-using System.Net;
-using Newtonsoft.Json.Linq;
-using System.Text.RegularExpressions;
-
-namespace BravvoxAPITesting.Utility
+﻿namespace BravvoxAPITesting.Utility
 {
+    using System;
+    using RestSharp;
+    using System.IO;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
     public class APIHelper<T>
     {
         public static RestClient restClient;
@@ -63,6 +60,19 @@ namespace BravvoxAPITesting.Utility
         public RestRequest ActivateEventPostRequest()
         {
             var restRequest = new RestRequest(Method.POST);
+            restRequest.AddHeader("Authorization", File.ReadAllText(text));
+            return restRequest;
+        }
+        public RestRequest InvitePostRequest()
+        {
+            var restRequest = new RestRequest(Method.POST);
+            restRequest.AddHeader("Authorization", File.ReadAllText(text));
+            return restRequest;
+        }
+        
+        public RestRequest EventGetRequest()
+        {
+            var restRequest = new RestRequest(Method.GET);
             restRequest.AddHeader("Authorization", File.ReadAllText(text));
             return restRequest;
         }

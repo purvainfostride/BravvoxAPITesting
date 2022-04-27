@@ -6,14 +6,13 @@ using System;
 
 namespace BravvoxAPITesting.BravvoxAPI
 {
-    public class BravvoxPatchAPI<T>
+    public class BravvoxGetAPI<T>
     {
-        public CreateEventDTO UpdatingEvent()
+        public CreateEventDTO GettingEventDetails()
         {
-            var payload = HandleContent.ParseJson<CreateEventDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\UpdateEvent.json");
             var crudmethods = new CRUDMethods<CreateEventDTO>();
             var endp = HandleContent.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
-            var content = crudmethods.UpdateEvent(endp.UpdateEventEndpoint, payload);
+            var content = crudmethods.GetEventDetails(endp.GetEventDetailsEndpoint);
             return content;
         }
     }
