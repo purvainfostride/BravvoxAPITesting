@@ -9,8 +9,7 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
 {
     [TestClass]
     public class TestingPOST
-    {  
-        [TestMethod]
+    {   [TestMethod]
         [Priority(2)]
         public void ValidateCreateEvent()
         {
@@ -81,7 +80,7 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
         public void ValidateCancelEvent()
         {
             var createEvent = new BravvoxPostAPI<CreateEventDTO>();
-            var apiHelper = new APIHelper
+            var apiHelper = new APIHelper<CreateEventDTO>();
             createEvent.CancellingEvent();
             Assert.AreEqual("OK", apiHelper.GetStatusDescription());
         }
