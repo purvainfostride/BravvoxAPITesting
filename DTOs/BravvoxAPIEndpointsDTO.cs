@@ -15,6 +15,10 @@ namespace BravvoxAPITesting.DTOs
         public string UpdateEventEndpoint { get; set; }
         public string GetEventDetailsEndpoint { get; set; }
         public string InviteUserToEventEndpoint { get; set; }
+        public string AddAdminToEventEndpoint { get; set; }
+        public string AddAttendeeToEventEndpoint { get; set; }
+        public string GetAttendeeListEndpoint { get; set; }
+        public string CancelEventEndpoint { get; set; }
         
     }
 }

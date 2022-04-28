@@ -15,5 +15,13 @@ namespace BravvoxAPITesting.BravvoxAPI
             var content = crudmethods.GetEventDetails(endp.GetEventDetailsEndpoint);
             return content;
         }
+        public AddAttendeeToEventDTO GettingAttendeeList()
+        {
+            var crudmethods = new CRUDMethods<AddAttendeeToEventDTO>();
+            var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
+            var content = crudmethods.GetAttendeeList(endp.GetAttendeeListEndpoint);
+            return content;
+        }
+
     }
 }

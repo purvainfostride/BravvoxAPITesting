@@ -9,10 +9,18 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
     public class TestingGetAPI
     {
         [TestMethod]
-        public void GetEventDetails()
-        {           var createEvent = new BravvoxGetAPI<CreateEventDTO>();
+        public void ValidateGetEventDetails()
+        {   var createEvent = new BravvoxGetAPI<CreateEventDTO>();
             var apiHelper = new APIHelper<CreateEventDTO>();
             createEvent.GettingEventDetails();
+            Assert.AreEqual("OK", apiHelper.GetStatusDescription());
+        }
+        [TestMethod]
+        public void ValidateGetAttendeeList()
+        {
+            var createEvent = new BravvoxGetAPI<CreateEventDTO>();
+            var apiHelper = new APIHelper<CreateEventDTO>();
+            createEvent.GettingAttendeeList();
             Assert.AreEqual("OK", apiHelper.GetStatusDescription());
         }
     }

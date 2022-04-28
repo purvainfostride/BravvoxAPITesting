@@ -35,7 +35,7 @@ namespace BravvoxAPITesting.BravvoxAPI
         }
         public CreateEventDTO ReactivateEvent()
         {
-           
+
             var crudmethods = new CRUDMethods<CreateEventDTO>();
             var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
             var content = crudmethods.ActivateEvent(endp.ReactivateEventEndpoint);
@@ -43,12 +43,35 @@ namespace BravvoxAPITesting.BravvoxAPI
         }
         public CreateEventDTO InvitingUserToEvent()
         {
-
             var crudmethods = new CRUDMethods<CreateEventDTO>();
             var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
             var content = crudmethods.InviteUserToEvent(endp.InviteUserToEventEndpoint);
             return content;
         }
        
+        public AddAdminToEventDTO AddingAdminToEvent()
+        {
+            var payload = UtilMethods.ParseJson<AddAdminToEventDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\AddAdminToEvent.json");
+            var crudmethods = new CRUDMethods<AddAdminToEventDTO>();
+            var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
+            var content = crudmethods.AddAdminToEvent(endp.AddAdminToEventEndpoint, payload);
+            return content;
+        }
+        public AddAttendeeToEventDTO AddingAttendeeToEvent()
+        {
+            var payload = UtilMethods.ParseJson<AddAttendeeToEventDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\AddAttendeeToEvent.json");
+            var crudmethods = new CRUDMethods<AddAttendeeToEventDTO>();
+            var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
+            var content = crudmethods.AddAttendeeToEvent(endp.AddAttendeeToEventEndpoint, payload);
+            return content;
+        }
+        public CreateEventDTO CancellingEvent()
+        {
+            var crudmethods = new CRUDMethods<CreateEventDTO>();
+            var endp = UtilMethods.ParseJson<BravvoxAPIEndpointsDTO>(@"C:\\Users\\Purva\\C#\\BravvoxAPITesting\\TestData\\BravvoxAPIEndpoints.json");
+            var content = crudmethods.CancelEvent(endp.CancelEventEndpoint);
+            return content;
+        }
+
     }
 }

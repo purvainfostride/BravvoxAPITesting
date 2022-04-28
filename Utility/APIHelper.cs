@@ -47,11 +47,13 @@
         public DTOs GetEventContent<DTOs>(IRestResponse response)
         {
             var contentOfUsers = response.Content;
+            Console.WriteLine(contentOfUsers);
             string jsonFormatted = JValue.Parse(contentOfUsers).ToString(Formatting.Indented);
             Console.WriteLine(jsonFormatted);
             DTOs dTOs = JsonConvert.DeserializeObject<DTOs>(contentOfUsers);
             return dTOs;
         }
+
         public RestRequest EventPostRequest(dynamic payload)
         {
             var restRequest = new RestRequest(Method.POST);
@@ -78,9 +80,23 @@
             restRequest.AddHeader("Authorization", File.ReadAllText(utilMethods.TokenFilePath()));
             return restRequest;
         }
+        public RestRequest AttendeeListGetRequest()
+        {
+            var restRequest = new RestRequest(Method.GET);
+            restRequest.AddHeader("Authorization", File.ReadAllText(utilMethods.TokenFilePath()));
+            return restRequest;
+        }
+        
         public RestRequest EventPacthRequest(dynamic payload)
         {
             var restRequest = new RestRequest(Method.PATCH);
+            restRequest.AddHeader("Authorization", File.ReadAllText(utilMethods.TokenFilePath()));
+            restRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
+            return restRequest;
+        }
+        public RestRequest AddAdminToEventPostRequest(dynamic payload)
+        {
+            var restRequest = new RestRequest(Method.POST);
             restRequest.AddHeader("Authorization", File.ReadAllText(utilMethods.TokenFilePath()));
             restRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
             return restRequest;

@@ -9,7 +9,9 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
 {
     [TestClass]
     public class TestingPOST
-    {   [TestMethod]
+    {  
+        [TestMethod]
+        [Priority(2)]
         public void ValidateCreateEvent()
         {
             var createEvent = new BravvoxPostAPI<CreateEventDTO>();
@@ -18,6 +20,7 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
             Assert.AreEqual("OK", apiHelper.GetStatusDescription());
         }
         [TestMethod]
+        [Priority(6)]
         public void ValidateDeactivateEvent()
         {
             var createEvent = new BravvoxPostAPI<CreateEventDTO>();
@@ -26,6 +29,7 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
             Assert.AreEqual("OK", apiHelper.GetStatusDescription());
         }
         [TestMethod]
+        [Priority(7)]
         public void ValidateReactivateEvent()
         {
             var createEvent = new BravvoxPostAPI<CreateEventDTO>();
@@ -34,6 +38,7 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
             Assert.AreEqual("OK", apiHelper.GetStatusDescription());
         }
         [TestMethod]
+        [Priority(5)]
         public void ValidateInvitingUserToEvent()
         {
             var createEvent = new BravvoxPostAPI<CreateEventDTO>();
@@ -42,12 +47,42 @@ namespace BravvoxAPITesting.TestingBravvoxAPIs
             Assert.AreEqual("OK", apiHelper.GetStatusDescription());
         }
         [TestMethod]
+        [Priority(4)]
+        public void ValidateAddAdminToEvent()
+        {
+            var createEvent = new BravvoxPostAPI<AddAdminToEventDTO>();
+            var apiHelper = new APIHelper<UserTokenDTO>();
+            createEvent.AddingAdminToEvent();
+            //Assert.AreEqual(200, apiHelper.GetStatusCode());
+            Assert.AreEqual("OK", apiHelper.GetStatusDescription());
+        }
+        [TestMethod]
+        [Priority(3)]
+        public void ValidateAddAttendeeToEvent()
+        {
+            var createEvent = new BravvoxPostAPI<AddAttendeeToEventDTO>();
+            var apiHelper = new APIHelper<UserTokenDTO>();
+            createEvent.AddingAttendeeToEvent();
+            //Assert.AreEqual(200, apiHelper.GetStatusCode());
+            Assert.AreEqual("OK", apiHelper.GetStatusDescription());
+        }
+        [TestMethod]
+        [Priority(1)]
         public void ValidateAGenerateToken()
         {
             var createEvent= new BravvoxPostAPI<UserTokenDTO>();
             var apiHelper = new APIHelper<UserTokenDTO>();
             createEvent.GeneratingToken();
             //Assert.AreEqual(200, apiHelper.GetStatusCode());
+            Assert.AreEqual("OK", apiHelper.GetStatusDescription());
+        }
+        [TestMethod]
+        [Priority(8)]
+        public void ValidateCancelEvent()
+        {
+            var createEvent = new BravvoxPostAPI<CreateEventDTO>();
+            var apiHelper = new APIHelper
+            createEvent.CancellingEvent();
             Assert.AreEqual("OK", apiHelper.GetStatusDescription());
         }
     }

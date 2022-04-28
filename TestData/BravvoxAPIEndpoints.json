@@ -1,9 +1,14 @@
 ﻿{
   "UserTokenEndpoint": "services/auth/v1/login",
   "CreateEventEndpoint": "services/event/v1/event",
-  "DeactivateEventEndpoint": "services/event/v1/event/c9kigct1mr2285sljbq0/deactivate",
-  "ReactivateEventEndpoint": "services/event/v1/event/c9kigct1mr2285sljbq0/reactivate",
-  "UpdateEventEndpoint": "services/event/v1/event/c9kigct1mr2285sljbq0",
-  "GetEventDetailsEndpoint": "services/event/v1/event/c9kigct1mr2285sljbq0",
-  "InviteUserToEventEndpoint": "services/event/v1/event/:c9ki1b5una7ajs286d90/invite/c8evsrdkh4do722jbse0"
+  "DeactivateEventEndpoint": "services/event/v1/event/c9l82gq722er3esor2gg/deactivate",
+  "ReactivateEventEndpoint": "services/event/v1/event/c9l82gq722er3esor2gg/reactivate",
+  "UpdateEventEndpoint": "services/event/v1/event/c9l82gq722er3esor2gg",
+  "GetEventDetailsEndpoint": "services/event/v1/event/c9l82gq722er3esor2gg",
+  "InviteUserToEventEndpoint": "services/event/v1/event/c9l82gq722er3esor2gg/invite/c8e7rgfksqa840u176s0",
+  "AddAdminToEventEndpoint": "services/event/v1/event/c9l82gq722er3esor2gg/admins",
+  "AddAttendeeToEventEndpoint": "services/event/v1/event/c9l820tuna762rhtgvsg/attend",
+  "GetAttendeeListEndpoint": "services/event/v1/event/c9l820tuna762rhtgvsg/attend",
+  "CancelEventEndpoint": "services/event/c9l82gq722er3esor2gg/cancel"
+
 }
